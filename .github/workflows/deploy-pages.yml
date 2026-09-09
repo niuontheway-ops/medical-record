@@ -34,6 +34,10 @@ jobs:
         env:
           SITE_BASE_PATH: /medical-record
           NEXT_PUBLIC_BASE_PATH: /medical-record
+      - name: Normalize Pages asset paths
+        run: |
+          mv dist/client/medical-record/_next dist/client/_next
+          rmdir dist/client/medical-record
       - uses: actions/configure-pages@v5
         with:
           enablement: true
